@@ -3,18 +3,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Updated font */
 }
 
 /* Body */
 body {
-    background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gradient background */
+    background: linear-gradient(135deg, #0f1b4c, #8a1414, #d9901a); /* Deeper multi-color gradient */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-size: 16px;
     color: #ecf0f1; /* Light text color for dark background */
+    background-size: 400% 400%; /* Smooth animation effect */
 }
 
 /* Main Container */
@@ -23,7 +24,8 @@ main {
     width: 100%;
     max-width: 600px;
     padding: 2rem;
-    border-radius: 12px;
+    border-top-left-radius: 12px; /* Left top corner radius */
+    border-top-right-radius: 12px; /* Right top corner radius */
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -31,13 +33,15 @@ main {
     transition: all 0.3s ease-in-out;
 }
 
-/* Heading */
+/* Headings */
 h1 {
-    font-size: 36px;
+    font-size: 28px;
+    margin-right: 5px;
+    margin-left: 5px;
     color: #333;
     margin-bottom: 1.5rem;
     text-align: center;
-    font-weight: 600;
+    font-weight: 600; /* Bold weight for headings */
     transition: color 0.3s ease;
 }
 
@@ -59,8 +63,6 @@ nav a {
     transition: all 0.3s ease;
     padding: 8px 20px;
     border-radius: 15px;
-    /* background: #e0e0e0; Light gray background */
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 /* Hover effect */
@@ -95,7 +97,20 @@ input[type="text"] {
     font-size: 16px;
     outline: none;
     transition: all 0.3s ease;
+    white-space: nowrap; /* Prevents text from breaking into new lines */
+    overflow-x: auto; /* Horizontal scroll when text overflows */
+    text-overflow: ellipsis; /* Add ellipsis when text is too long */
 }
+
+/* On mobile devices, allow horizontal scrolling when text overflows */
+@media (max-width: 600px) {
+    input[type="text"] {
+        white-space: normal; /* Allow line breaks */
+        overflow-y: auto; /* Vertical scroll for longer content */
+        max-height: 60px; /* Set a max-height if needed */
+    }
+}
+
 
 /* Input focus effect */
 input[type="text"]:focus {
@@ -131,23 +146,31 @@ ul {
     width: 100%;
 }
 
-/* Todo item */
+/* List item containing the delete button */
 li {
-    background: #f9f9f9;
-    padding: 12px 20px;
-    border-radius: 12px;
+    position: relative;
+    background: linear-gradient(135deg, #e3f7e3, #ffffff);
+    padding: 15px 20px;
+    border-radius: 15px;
     margin: 12px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
 }
 
-/* Todo item hover effect */
 li:hover {
-    background: #e3f7e3;
     transform: scale(1.03);
+    background: linear-gradient(135deg, #c8f7c5, #e3f7e3);
+}
+
+/* Text alignment inside the list */
+li label {
+    flex-grow: 1;
+    font-size: 18px;
+    color: #34495e;
+    padding-right: 50px;
 }
 
 /* Checkbox Styling */
@@ -173,7 +196,7 @@ label {
     transition: color 0.3s ease;
 }
 
-/* Button to delete task */
+/* Delete button styles */
 button[type="button"] {
     padding: 5px 12px;
     background-color: #e57373;
@@ -182,15 +205,48 @@ button[type="button"] {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Delete button hover effect */
 button[type="button"]:hover {
     background-color: #d32f2f;
-    transform: scale(1.1);
+    transform: scale(1.1) translateY(-50%);
 }
 
+/* Footer Styles */
+footer {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-10px) scale(1.4);
+    color: #0073b1;
+}
+
+.social-icons a:active {
+    transform: translateY(0) scale(1);
+}
 
 /* Responsive Design */
 @media (max-width: 600px) {
@@ -208,8 +264,7 @@ button[type="button"]:hover {
         width: 100%;
     }
 
-    /* Fix width for delete button on small devices */
     button[type="button"] {
-        width: 100px; /* Slightly smaller on small devices */
+        width: 100px;
     }
 }
