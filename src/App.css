@@ -1,0 +1,215 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 16px;
+    color: #ecf0f1; /* Light text color for dark background */
+}
+
+/* Main Container */
+main {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Heading */
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Navbar Styles */
+nav {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    position: relative;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #555;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 8px 20px;
+    border-radius: 15px;
+    /* background: #e0e0e0; Light gray background */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+/* Hover effect */
+nav a:hover {
+    background-color: #4caf50;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Active class style */
+nav a.active {
+    background-color: #4caf50;
+    color: white;
+    font-weight: 700;
+}
+
+/* Add Todo Form */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input Field */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Input focus effect */
+input[type="text"]:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+/* Button Styling */
+button {
+    padding: 12px 25px;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Todos List */
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+/* Todo item */
+li {
+    background: #f9f9f9;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Todo item hover effect */
+li:hover {
+    background: #e3f7e3;
+    transform: scale(1.03);
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Completed Task Crossline */
+input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #bbb;
+    transform: scale(0.98);
+}
+
+/* Label Styling */
+label {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Button to delete task */
+button[type="button"] {
+    padding: 5px 12px;
+    background-color: #e57373;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Delete button hover effect */
+button[type="button"]:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    input[type="text"], button {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    /* Fix width for delete button on small devices */
+    button[type="button"] {
+        width: 100px; /* Slightly smaller on small devices */
+    }
+}
